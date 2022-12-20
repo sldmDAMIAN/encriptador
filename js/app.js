@@ -4,6 +4,7 @@ const btnDesencriptar = document.querySelector(".btnDesencriptar");
 const btnCopiar = document.querySelector(".btnCopiar");
 const txtArea = document.querySelector("#mensaje");
 txtArea.onkeypress = soloLetras;
+//txtArea.onpaste = noPaste;
 
 let mensaje = "";
 let encriptado = "";
@@ -31,6 +32,20 @@ function ocultarDiv() {
         mnjEncript.value = encriptado;
 
     }
+}
+
+function noPaste(e) {
+    e.preventDefault();
+
+
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Accion no permitida',
+        showConfirmButton: false,
+        timer: 1000
+    })
+
 }
 
 function soloLetras(e) {
@@ -67,6 +82,7 @@ function encriptar() {
     // La letra "u" es convertida para "ufat"
 
     mensaje = document.querySelector(".mensaje").value.trim();
+    mensaje = mensaje.toLocaleLowerCase();
 
     encriptado = mensaje.replace(/e/gi, "enter");
     encriptado = encriptado.replace(/i/gi, "imes");
@@ -77,8 +93,10 @@ function encriptar() {
     ocultarDiv();
 }
 
-function desencriptar(){
+function desencriptar() {
     mensaje = document.querySelector(".mensaje").value.trim();
+    mensaje = mensaje.toLocaleLowerCase();
+
 
     encriptado = mensaje.replace(/enter/gi, "e");
     encriptado = encriptado.replace(/imes/gi, "i");
@@ -90,21 +108,20 @@ function desencriptar(){
 
 }
 
-async function copiar(){
+async function copiar() {
 
     let copiado = document.querySelector(".msjEncriptado").value;
 
     exito = await navigator.clipboard.writeText(copiado);
 
-    if(exito !== ""){
+    if (exito !== "") {
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Texto copiado',
             showConfirmButton: false,
             timer: 1000
-          });
+        });
     }
-    }
+}
 
-    
