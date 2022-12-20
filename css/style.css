@@ -1,0 +1,295 @@
+:root {
+  --fuenteHeading: "Poppins", sans-serif;
+  --fuenteParrafos: "PT Sans", sans-serif;
+
+  --gris: #e1e1e1;
+  --azul: #0da2c7;
+  --azulOscuro: #0d60ad;
+  --blanco: #ffffff;
+  --negro: #000000;
+
+  /* Azules */
+  --azulBG: #f3f5fc;
+  --azulBtn: #0a3871;
+  --azulHover: #052051;
+
+  /* Grises */
+  --grisHover: #ced4da;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1 rem = 10px */
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: var(--fuenteParrafos);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/** Globales **/
+.cuerpo {
+  background-image: linear-gradient(to bottom, #ffffff, #b3b0b0);
+}
+
+.contenedor {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+}
+
+.contenedor-sm {
+  width: min(60%, 80rem);
+  margin: 0 auto;
+}
+
+.titulos {
+  text-align: center;
+  margin: 10rem 0;
+}
+
+.centrar-texto {
+  text-align: center;
+}
+p {
+  margin: 0;
+}
+
+i {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuenteHeading);
+  line-height: 1.2;
+}
+h1 {
+  font-size: 4.8rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3.2rem;
+}
+h4 {
+  font-size: 2.8rem;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Contenido */
+.h-logo {
+  padding: 3rem 4rem;
+}
+
+@media (min-width: 998px) {
+  .contenido {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10rem;
+    height: 100vh;
+  }
+}
+.campo {
+  padding: 5rem;
+}
+textarea {
+  border: none;
+  resize: none;
+  border-radius: 0.7rem;
+  width: 100%;
+  height: 50vh;
+  max-height: 140rem;
+  font-size: 2.8rem;
+  color: var(--azulBtn);
+  padding: 2rem;
+}
+
+.msjEncriptado {
+  width: 100%;
+  resize: none;
+  height: 20vh;
+  min-height: 10rem;
+  margin: 1rem 0 3rem 0;
+}
+@media (min-width: 998px) {
+  .msjEncriptado {
+    height: 40vh;
+    min-height: 30rem;
+    margin: 1rem 0 6rem 0;
+  }
+}
+textarea::placeholder {
+  color: var(--azulBtn);
+  font-weight: 400;
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.alerta-mensaje {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.leyend {
+  color: #052051;
+  font-size: 1.2rem;
+}
+
+.botones {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  .botones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+.btn {
+  all: unset;
+  padding: 1rem;
+  border-radius: 2.4rem;
+  color: var(--blanco);
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    margin-bottom: 5rem;
+  }
+}
+
+.btnEncriptar {
+  background-color: var(--azulBtn);
+}
+
+.btnDesencriptar,
+.btnCopiar {
+  color: var(--azulBtn);
+  background-color: var(--azulBG);
+  border: 1px solid var(--azulBtn);
+}
+
+.side-content {
+  display: grid;
+  align-items: center;
+
+  margin: 5rem 0;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  min-height: 20rem;
+}
+
+.imgSide {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 998px) {
+  .side-content {
+    width: min(100%, 60rem);
+  }
+
+  .imgSide {
+    opacity: 1;
+    height: initial;
+  }
+}
+
+.btnCopiar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: auto;
+  padding: 1.4rem;
+  margin: 0 1rem;
+}
+
+.msj,
+.leyenda,
+.btnCopiar {
+  text-align: center;
+}
+
+.msj {
+  font-size: 2.8rem;
+  color: #0a3871;
+  font-weight: bold;
+}
+
+.leyenda {
+  color: var(--azulBtn);
+  padding: 0 1rem 2rem 1rem;
+  opacity: 0.8;
+}
+
+.copy {
+  display: grid;
+  margin: 2rem auto;
+}
+
+@media (min-width: 768px) {
+  .copy {
+    justify-content: center;
+  }
+
+  .btnCopiar {
+    width: auto;
+    padding: 1.2rem 8rem;
+  }
+}
+
+.btnEncriptar:hover {
+  background-color: var(--azulHover);
+}
+
+.btnDesencriptar:hover,
+.btnCopiar:hover {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #0a3871;
+  padding: 1rem;
+  color: var(--blanco);
+}
+
+footer a {
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+/*=============================================================================*/

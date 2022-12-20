@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encriptador</title>
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Poppins:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/11bba905ce.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" href="img/Logo.png" type="image/x-icon">
+  </head>
+  <body>
+    <header class="h-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="img/Logo.png" alt="Imagen Logo" />
+        </a>
+      </div>
+    </header>
+
+    <div class="contenedor contenido">
+      <main>
+        <div class="campo">
+          <textarea
+            name="mensaje"
+            id="mensaje"
+            class="mensaje"
+            placeholder="Ingresa tu texto aqui"
+          ></textarea>
+        </div>
+
+        <div>
+          <div class="alerta-mensaje">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p class="leyend">Solo letras minúsculas y sin acentos</p>
+          </div>
+
+          <div class="botones">
+            <button class="btn btnEncriptar" id="encriptar">Encriptar</button>
+
+            <button class="btn btnDesencriptar" id="desencriptar">
+              Desencriptar
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <aside class="side-content">
+        <div>
+          <div class="encryp">
+            <textarea
+              name="msjEncriptado"
+              id="msjEncriptado"
+              class="msjEncriptado"
+              readonly="readonly"
+              disabled
+            ></textarea>
+          </div>
+          <div class="componentes">
+            <img class="imgSide" src="img/Muñeco.svg" alt="" />
+            <p class="msj">Ningun mensaje fue encontrado</p>
+            <p class="leyenda">
+              Ingresa el texto que desees encriptar o desencriptar
+            </p>
+          </div>
+
+          <div class="copy">
+            <button class="btn btnCopiar">Copiar <i class="fa-solid fa-copy"></i></button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="centrar-texto">
+      <p>
+        Todos los derechos reservados | &copy;
+        <a href="https://www.facebook.com/DevIncSide/" target="_blank"
+          >DevIncSide 2023 | Gabriel D.</a
+        >
+      </p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
