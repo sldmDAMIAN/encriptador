@@ -195,6 +195,8 @@ textarea:focus {
   border: 1px solid var(--azulBtn);
 }
 
+
+
 .side-content {
   display: grid;
   align-items: center;
@@ -279,6 +281,14 @@ textarea:focus {
 
 .btn:hover {
   transform: scale(1.05);
+}
+
+.btnDesencriptar:disabled{
+  cursor: not-allowed;
+  transform: scale(1);
+  background-color: #b3b0b0;
+  opacity: .5;
+  color: var(--azulBtn);
 }
 
 footer {

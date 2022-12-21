@@ -4,35 +4,41 @@ const btnDesencriptar = document.querySelector(".btnDesencriptar");
 const btnCopiar = document.querySelector(".btnCopiar");
 const txtArea = document.querySelector("#mensaje");
 txtArea.onkeypress = soloLetras;
+txtArea.onkeyup = btnActive;
+
 //txtArea.onpaste = noPaste;
 
-let mensaje = "";
-let encriptado = "";
+let mensaje;
+let encriptado;
 
 btnEncriptar.onclick = encriptar;
 btnDesencriptar.onclick = desencriptar;
 btnCopiar.onclick = copiar;
 
 ocultarDiv();
+btnActive();
 
 function ocultarDiv() {
-    if (encriptado === "") {
+    let mnjEncript;
+
+    if (encriptado === undefined || mensaje === undefined || mensaje === "" || encriptado === "") {
         document.querySelector(".encryp").style.display = "none";
         document.querySelector(".copy").style.display = "none";
         document.querySelector(".componentes").style.display = "block";
-
     }
 
-    if (encriptado !== "") {
+    if (encriptado !== undefined && mensaje !== undefined && encriptado !== "" && mensaje !== "") {
         document.querySelector(".encryp").style.display = "block";
         document.querySelector(".componentes").style.display = "none";
         document.querySelector(".copy").style.display = "grid";
 
-        let mnjEncript = document.querySelector(".msjEncriptado");
+        mnjEncript = document.querySelector(".msjEncriptado");
         mnjEncript.value = encriptado;
 
     }
 }
+
+
 
 function noPaste(e) {
     e.preventDefault();
@@ -71,6 +77,23 @@ function soloLetras(e) {
 
 }
 
+function btnActive() {
+    mensaje = document.querySelector(".mensaje").value.trim();
+    console.log(mensaje);
+
+    if (mensaje === "") {
+        btnDesencriptar.disabled = true;
+        encriptado = "";
+    }
+
+    if (mensaje !== "") {
+        btnDesencriptar.disabled = false;
+    }
+
+    ocultarDiv();
+
+}
+
 function encriptar() {
 
     // Las "llaves" de encriptación que utilizaremos son las siguientes:
@@ -82,27 +105,65 @@ function encriptar() {
     // La letra "u" es convertida para "ufat"
 
     mensaje = document.querySelector(".mensaje").value.trim();
-    mensaje = mensaje.toLocaleLowerCase();
 
-    encriptado = mensaje.replace(/e/gi, "enter");
-    encriptado = encriptado.replace(/i/gi, "imes");
-    encriptado = encriptado.replace(/a/gi, "ai");
-    encriptado = encriptado.replace(/o/gi, "ober");
-    encriptado = encriptado.replace(/u/gi, "ufat");
+    if (mensaje !== "") {
+        mensaje = mensaje.toLocaleLowerCase();
+
+        encriptado = mensaje.replace(/e/gi, "enter");
+        encriptado = encriptado.replace(/i/gi, "imes");
+        encriptado = encriptado.replace(/a/gi, "ai");
+        encriptado = encriptado.replace(/o/gi, "ober");
+        encriptado = encriptado.replace(/u/gi, "ufat");
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Texto encriptado',
+            showConfirmButton: false,
+            timer: 1000
+        });
+    }
+
+    if (mensaje === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ingresa un texto',
+            text: 'El mensaje no puede ir vacio',
+        })
+    }
 
     ocultarDiv();
 }
 
 function desencriptar() {
     mensaje = document.querySelector(".mensaje").value.trim();
-    mensaje = mensaje.toLocaleLowerCase();
+
+    if (mensaje !== "") {
+        mensaje = mensaje.toLocaleLowerCase();
 
 
-    encriptado = mensaje.replace(/enter/gi, "e");
-    encriptado = encriptado.replace(/imes/gi, "i");
-    encriptado = encriptado.replace(/ai/gi, "a");
-    encriptado = encriptado.replace(/ober/gi, "o");
-    encriptado = encriptado.replace(/ufat/gi, "u");
+        encriptado = mensaje.replace(/enter/gi, "e");
+        encriptado = encriptado.replace(/imes/gi, "i");
+        encriptado = encriptado.replace(/ai/gi, "a");
+        encriptado = encriptado.replace(/ober/gi, "o");
+        encriptado = encriptado.replace(/ufat/gi, "u");
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Texto desencriptado',
+            showConfirmButton: false,
+            timer: 1000
+        });
+    }
+
+    if (mensaje === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ingresa un texto',
+            text: 'El mensaje no puede ir vacio',
+        });
+    }
 
     ocultarDiv();
 
@@ -114,7 +175,7 @@ async function copiar() {
 
     exito = await navigator.clipboard.writeText(copiado);
 
-    if (exito !== "") {
+    if (copiado !== "") {
         Swal.fire({
             position: 'center',
             icon: 'success',
