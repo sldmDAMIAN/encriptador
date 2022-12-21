@@ -79,7 +79,6 @@ function soloLetras(e) {
 
 function btnActive() {
     mensaje = document.querySelector(".mensaje").value.trim();
-    console.log(mensaje);
 
     if (mensaje === "") {
         btnDesencriptar.disabled = true;
