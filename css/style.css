@@ -294,12 +294,33 @@ textarea:focus {
 footer {
   background-color: #0a3871;
   padding: 1rem;
+  font-size: 1rem;
   color: var(--blanco);
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  white-space: nowrap;
 }
 
+@media(min-width: 500px){
+  footer {
+    font-size: 1.4rem;
+  }
+}
+
+@media(min-width: 768px){
+  footer {
+    font-size: 1.6rem;
+  }
+}
 footer a {
   color: var(--blanco);
   font-weight: bold;
+}
+
+.redes {
+  display: flex;
+  gap: 1rem;
 }
 
 /*=============================================================================*/
