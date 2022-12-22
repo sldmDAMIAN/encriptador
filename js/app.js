@@ -41,7 +41,7 @@ function ocultarDiv() {
 
 
 function onPaste(e) {
-    let patron = /[^a-zA-Z ]/g;
+    let patron = /[^a-zA-ZñÑ ]/g;
     let textoMensaje;
     mensaje = document.querySelector("#mensaje");
     textoMensaje = mensaje.value.toLocaleLowerCase();
@@ -59,7 +59,7 @@ function onPaste(e) {
             textoMensaje = textoMensaje.replace(/ú/gi, "u");
             textoMensaje = textoMensaje.replace(/ü/gi, "u");
 
-            textoMensaje = textoMensaje.replace(/[^a-zA-Z ]/g, "");
+            textoMensaje = textoMensaje.replace(/[^a-zA-ZñÑ ]/g, "");
 
             mensaje.value = textoMensaje;
 
