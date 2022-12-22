@@ -45,7 +45,6 @@ function onPaste(e) {
     let textoMensaje;
     mensaje = document.querySelector("#mensaje");
     textoMensaje = mensaje.value.toLocaleLowerCase();
-    console.log(textoMensaje);
     mensaje.value = textoMensaje;
 
     if (textoMensaje.search(patron) >= 0) {
