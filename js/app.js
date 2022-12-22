@@ -4,9 +4,9 @@ const btnDesencriptar = document.querySelector(".btnDesencriptar");
 const btnCopiar = document.querySelector(".btnCopiar");
 const txtArea = document.querySelector("#mensaje");
 txtArea.onkeypress = soloLetras;
-txtArea.onkeyup = btnActive;
+txtArea.onkeyup = onPaste;
 
-//txtArea.onpaste = noPaste;
+txtArea.onpaste = onPaste;
 
 let mensaje;
 let encriptado;
@@ -40,18 +40,33 @@ function ocultarDiv() {
 
 
 
-function noPaste(e) {
-    e.preventDefault();
+function onPaste(e) {
+    let patron = /[^a-zA-Z ]/g;
+    let textoMensaje;
+    mensaje = document.querySelector("#mensaje");
+    textoMensaje = mensaje.value.toLocaleLowerCase();
+    console.log(textoMensaje);
+    mensaje.value = textoMensaje;
 
+    if (textoMensaje.search(patron) >= 0) {
 
-    Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Accion no permitida',
-        showConfirmButton: false,
-        timer: 1000
-    })
+        alert("Caracteres no validos encontrados, adecuaremos tu mensaje");
 
+        if (textoMensaje !== "") {
+            textoMensaje = textoMensaje.replace(/é/gi, "e");
+            textoMensaje = textoMensaje.replace(/í/gi, "i");
+            textoMensaje = textoMensaje.replace(/á/gi, "a");
+            textoMensaje = textoMensaje.replace(/ó/gi, "o");
+            textoMensaje = textoMensaje.replace(/ú/gi, "u");
+            textoMensaje = textoMensaje.replace(/ü/gi, "u");
+
+            textoMensaje = textoMensaje.replace(/[^a-zA-Z ]/g, "");
+
+            mensaje.value = textoMensaje;
+
+        }
+    }
+    btnActive();
 }
 
 function soloLetras(e) {
@@ -78,7 +93,9 @@ function soloLetras(e) {
 }
 
 function btnActive() {
+
     mensaje = document.querySelector(".mensaje").value.trim();
+    
 
     if (mensaje === "") {
         btnDesencriptar.disabled = true;
@@ -107,6 +124,8 @@ function encriptar() {
 
     if (mensaje !== "") {
         mensaje = mensaje.toLocaleLowerCase();
+
+
 
         encriptado = mensaje.replace(/e/gi, "enter");
         encriptado = encriptado.replace(/i/gi, "imes");
