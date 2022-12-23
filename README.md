@@ -15,8 +15,8 @@ _El reto consiste en crear una página web que cifre y descifre el texto que ser
 ## ✔️ Requisitos del desafío 
 
 
-* _Debe funcionar solo con letras minúsculas_
-* _No deben ser utilizados letras con acentos ni caracteres especiales_
+* _Debe funcionar solo con letras minúsculas._
+* _No deben ser utilizados letras con acentos ni caracteres especiales._
 * _Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original._
 ```
 Por ejemplo:
@@ -26,8 +26,8 @@ Por ejemplo:
 gaitober" => "gato"
 ```
 
-* _La página debe tener campos para inserción del texto que será encriptado o desencriptado, y el usuario debe poder escoger entre as dos opciones.
-* El resultado debe ser mostrado en la pantalla.
+* _La página debe tener campos para inserción del texto que será encriptado o desencriptado, y el usuario debe poder escoger entre las dos opciones._
+* _El resultado debe ser mostrado en la pantalla._
 
 ### Extras:
 
@@ -58,6 +58,8 @@ Las llaves de encriptación solicitadas son las siguientes:
 
 
 ## Contacto
+
+[LinkedIn](https://www.linkedin.com/in/gabriel-damian-freelance/ "Heading link")
 
 <a href="https://www.linkedin.com/in/gabriel-damian-freelance/" target="blank_">LinkedIn</a>
 
