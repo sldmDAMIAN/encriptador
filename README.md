@@ -59,6 +59,6 @@ Las llaves de encriptación solicitadas son las siguientes:
 
 ## Contacto
 
-linkedin - [https://www.linkedin.com/in/gabriel-damian-freelance/)
+linkedin - https://www.linkedin.com/in/gabriel-damian-freelance/
 
 
